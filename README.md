@@ -1,2 +1,2 @@
-# SchedOptimizer
+# CpuScheduler
 Cpu scheduling algorithms
