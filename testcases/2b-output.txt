@@ -1,3 +1,4 @@
+Round Robin ||| Quantum-1
 ID              | A | B | C | D | E |
 Arrival Time    | 0 | 2 | 4 | 6 | 8 |
 Burst Time      | 3 | 6 | 4 | 5 | 2 |
