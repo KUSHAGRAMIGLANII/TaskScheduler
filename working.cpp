@@ -302,7 +302,7 @@ void MultilevelQueue(vector<tuple<string, int, int>> &input_tuple, int process_c
          }
     }
 }
-void MultilevelFeedbackQueue(vector<tuple<string,int,int>> &input_tuple,int process_count,int time_span){
+void MultiLevelQueue2(vector<tuple<string,int,int>> &input_tuple,int process_count,int time_span){
     Waiting_time.resize(process_count);
     TurnAround_time.resize(process_count);
     Finish_time.resize(process_count);
@@ -483,8 +483,8 @@ int main() {
         MultilevelQueue(input_tuple,process_count,time_span);
         printans(input_tuple,process_count);
     }
-    else if(process_name=="MLFQ" || process_name=="mlfq"){
-        MultilevelFeedbackQueue(input_tuple,process_count,time_span);
+    else if(process_name=="MLQ2" || process_name=="mlq2"){
+        MultiLevelQueue2(input_tuple,process_count,time_span);
         printans(input_tuple,process_count);
     }
     // else if(process_name=="ageing"){
