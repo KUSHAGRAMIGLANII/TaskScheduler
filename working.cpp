@@ -256,7 +256,7 @@ void highestResponseRatioNext(vector<tuple<string, int, int>> &input_tuple, int 
         }
     }
 }
-void MultilevelQueue(vector<tuple<string, int, int>> &input_tuple, int process_count, int time_span){
+void Ageing(vector<tuple<string, int, int>> &input_tuple, int process_count, int time_span){
     Waiting_time.resize(process_count);
     TurnAround_time.resize(process_count);
     Finish_time.resize(process_count);
@@ -302,7 +302,7 @@ void MultilevelQueue(vector<tuple<string, int, int>> &input_tuple, int process_c
          }
     }
 }
-void MultiLevelQueue2(vector<tuple<string,int,int>> &input_tuple,int process_count,int time_span){
+void Ageing2(vector<tuple<string,int,int>> &input_tuple,int process_count,int time_span){
     Waiting_time.resize(process_count);
     TurnAround_time.resize(process_count);
     Finish_time.resize(process_count);
@@ -351,42 +351,6 @@ void MultiLevelQueue2(vector<tuple<string,int,int>> &input_tuple,int process_cou
                 remainingServiceTime[j]=getBurstTime(input_tuple[j]);
                 j++;
          }
-    }
-}
-void ageing(vector<tuple<string, int, int>>& input_tuple, int process_count, int time_span) {
-    Waiting_time.resize(process_count);
-    TurnAround_time.resize(process_count);
-    Finish_time.resize(process_count);
-
-    sortByArrivalTime(input_tuple);
-    vector<tuple<int, int>> processes; // Pid, priority
-    int j = 0;
-
-    for (int i = 0; i < time_span; i++) {
-        while (j < process_count && getArrivalTime(input_tuple[j]) <= i) {
-            processes.push_back({j, 0}); // Initialize priority to 0
-            j++;
-        }
-
-        for (auto& proc : processes) {
-            get<1>(proc) += 1; // Increase priority for aging
-        }
-
-        sortByPriority(processes);
-
-        if (!processes.empty()) {
-            int Pid = get<0>(processes[0]);
-            int BT = getBurstTime(input_tuple[Pid]);
-            int AT = getArrivalTime(input_tuple[Pid]);
-
-            i += BT - 1; // Increment i by BT, accounting for the loop's increment
-
-            Finish_time[Pid] = i + 1; // Process completes at this time
-            TurnAround_time[Pid] = Finish_time[Pid] - AT;
-            Waiting_time[Pid] = TurnAround_time[Pid] - BT;
-
-            processes.erase(processes.begin()); // Remove executed process
-        }
     }
 }
 void printans(const vector<tuple<string, int, int>>& input_tuple, int process_count) {
@@ -480,11 +444,11 @@ int main() {
         printans(input_tuple,process_count);
     }
     else if(process_name=="MLQ" || process_name=="mlq"){
-        MultilevelQueue(input_tuple,process_count,time_span);
+        Ageing(input_tuple,process_count,time_span);
         printans(input_tuple,process_count);
     }
     else if(process_name=="MLQ2" || process_name=="mlq2"){
-        MultiLevelQueue2(input_tuple,process_count,time_span);
+        Ageing2(input_tuple,process_count,time_span);
         printans(input_tuple,process_count);
     }
     // else if(process_name=="ageing"){
