@@ -15,8 +15,8 @@ Shortest Remaining Time Next (SRTF) is similar to SPN but is a preemptive algori
 ## Highest Response Ratio Next (HRRN)
 Highest Response Ratio Next (HRRN) is a scheduling algorithm that prioritizes processes based on their response ratio. The response ratio is calculated as (waiting time + burst time) / burst time. The process with the highest response ratio is executed first. HRRN is non-preemptive, meaning that once a process starts executing, it runs until completion. This algorithm helps to minimize the average waiting time, especially for processes with long waiting times.
 
-## Multi Level Queue(MLQ)
-MLQ is a scheduling algorithm that uses multiple priority queues to allocate CPU time based on priority levels. Processes with higher priority levels are executed first. When a process completes execution, it is moved to a lower-priority queue. This algorithm is beneficial for handling a mix of short and long-running processes with varying priorities. It ensures that high-priority processes are executed first while still allowing low-priority processes to be executed eventually.
+## Aging
+Aging is a technique used in process scheduling to prevent starvation of low-priority processes. Starvation occurs when high-priority processes continuously prevent low-priority processes from getting CPU time. Aging gradually increases the priority of a waiting process, ensuring it eventually gets CPU time.
 
-## Multilevel Feedback Queue (MLFQ)
-Multilevel Feedback Queue (MLFQ) is a complex scheduling algorithm that uses multiple queues with different priority levels. Processes can move between queues based on their behavior and CPU burst characteristics. Initially, a process starts in the highest priority queue. If it uses up its time quantum without finishing, it is moved to a lower-priority queue. Processes in lower priority queues get larger time quanta. If a process in a lower queue does not finish, it remains in that queue or moves further down. This allows MLFQ to dynamically adjust priorities based on process behavior, providing a good balance between responsiveness and throughput.
+## Aging with a Quantum in Power
+In some systems, a more nuanced approach to aging involves using a quantum, a fixed time slice, and adjusting the aging factor in a more controlled manner. This approach combines the benefits of aging and time-slicing to optimize process scheduling.
