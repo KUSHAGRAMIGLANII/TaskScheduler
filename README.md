@@ -1,5 +1,5 @@
 # TaskScheduler
-An implementation of various CPU scheduling algorithms in C++. The algorithms included are First Come First Serve (FCFS), Round Robin (RR), Shortest Job First (SJF), Shortest Remaining Time (SRTF), Highest Response Ratio Next (HRRN), MultiLevel Feedback Queue(MLFQ).
+An implementation of various CPU scheduling algorithms in C++. The algorithms included are First Come First Serve (FCFS), Round Robin (RR), Shortest Job First (SJF), Shortest Remaining Time (SRTF), Highest Response Ratio Next (HRRN), Aging.
 ## First Come First Serve (FCFS)
 First Come First Serve (FCFS) is a scheduling algorithm where the process that arrives first is executed first. It is simple and easy to understand, but it can lead to poor performance if there are processes with long burst times. FCFS does not prioritize processes, making it a non-preemptive algorithm. This means that once a process starts executing, it runs until completion. FCFS is commonly used in batch systems where the order of processes is important.
 
